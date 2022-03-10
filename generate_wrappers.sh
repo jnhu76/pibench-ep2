@@ -52,17 +52,17 @@ if [[ "$indexes" == *"DPTree"* ]]; then
 fi
 
 # Hot
-if [[ "$indexes" == *"HOT"* ]]; then
-	eval "cd Hot"
-	if [ ! -d "./hot" ]; then
-		eval "git clone https://github.com/speedskater/hot.git && cp CMakeLists.txt hot/ && cd hot && git submodule update --init --recursive"
-	else
-		eval "cd hot"
-	fi
-	eval "rm -rf build && mkdir build && cd build && cmake .. && make && mv libhot_wrapper.so ${binary_path}/libhot_wrapper.so"
-	eval "cd ../../../"
-        echo "HOT wrapper built complete."
-fi
+# if [[ "$indexes" == *"HOT"* ]]; then
+# 	eval "cd Hot"
+# 	if [ ! -d "./hot" ]; then
+# 		eval "git clone https://github.com/speedskater/hot.git && cp CMakeLists.txt hot/ && cd hot && git submodule update --init --recursive"
+# 	else
+# 		eval "cd hot"
+# 	fi
+# 	eval "rm -rf build && mkdir build && cd build && cmake .. && make && mv libhot_wrapper.so ${binary_path}/libhot_wrapper.so"
+# 	eval "cd ../../../"
+#         echo "HOT wrapper built complete."
+# fi
 
 # LBTree
 if [[ "$indexes" == *"LBTree"* ]]; then
