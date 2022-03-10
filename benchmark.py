@@ -45,9 +45,9 @@ seconds = 10 # followed by 10 seconds operation (only operation will be measured
 
 
 pibench_path = "pibench/build/src/PiBench" # default path to pibench executable
-lib_dir = "wrappers/" # default path to binary folder
+lib_dir = "wrappers" # default path to binary folder
 result_dir = "./results" # default path to folder for which results will be saved into
-pool_path = "" # by default PMem pool will be created in current dir
+pool_path = "/mnt/pmem" # by default PMem pool will be created in current dir
 
 numactl = "numactl --membind=0"
 base_command = "sudo LD_PRELOAD=/usr/lib64/libjemalloc.so"

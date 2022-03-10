@@ -82,7 +82,8 @@ if (NOT pibench_POPULATED)
   include_directories(${pibench_SOURCE_DIR}/include)
 endif ()
 
-link_directories(oneTBB/build/gnu_11.1_cxx11_64_release)
+# fixme: update oneTBB to gnu_10.3_cxx11_64_release
+link_directories(oneTBB/build/gnu_10.3_cxx11_64_release)
 include_directories(oneTBB/include)
 
 
