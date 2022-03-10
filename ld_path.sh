@@ -1,0 +1,1 @@
+export LD_LIBRARY_PATH=/home/aim/hjn/tree/jemalloc-5.2.1/lib:$LD_LIBRARY_PATH

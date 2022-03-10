@@ -50,7 +50,7 @@ result_dir = "./results" # default path to folder for which results will be save
 pool_path = "/mnt/pmem" # by default PMem pool will be created in current dir
 
 numactl = "numactl --membind=0"
-base_command = "sudo LD_PRELOAD=/usr/lib64/libjemalloc.so"
+base_command = "sudo LD_PRELOAD=/home/aim/hjn/tree/jemalloc-5.2.1/lib/libjemalloc.so"
 
 
 # "HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"
