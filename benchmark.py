@@ -54,29 +54,34 @@ base_command = "sudo LD_PRELOAD=/usr/lib64/libjemalloc.so"
 
 
 # "HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"
-Uniform = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"] 
+# Uniform = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"] 
+Uniform = ["Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK", "PACTree"]
 uniform_threads = [40,30,20,10,5,1] # [40,30,20,10,5,1]  customize your choice of data points
 uniform_ops = ["-r 1","-r 0 -i 1","-r 0 -u 1","-r 0 -s 1"] # "-r 1","-r 0 -i 1","-r 0 -u 1","-r 0 -s 1"
 
 # "HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"
-Skewed = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"]
+# Skewed = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"]
+Skewed = ["Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","PACTree"]
 skewed_threads = [40,30,20,10,5,1] # [40,30,20,10,5,1]
 skewed_ops = ["-r 1","-r 0 -u 1","-r 0 -s 1"] # "-r 1","-r 0 -u 1","-r 0 -s 1"
 self_similar = 0.2
 
 # "HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"
-Mixed = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"]
+# Mixed = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"]
+Mixed = ["Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK", "PACTree"]
 mixed_threads = [40,30,20,10,5,1] # [40,30,20,10,5,1]
 mixed_ops = ["-r 0.9 -i 0.1","-r 0.5 -i 0.5","-r 0.1 -i 0.9"] # "-r 0.9 -i 0.1","-r 0.5 -i 0.5","-r 0.1 -i 0.9"
 
 # "HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"
-Latency = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"]
+# Latency = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"]
+Latency = ["Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","PACTree"]
 latency_threads = [40,30,20,10,5,1] # [40,30,20,10,5,1]
 latency_ops = ["-r 1","-r 0 -i 1","-r 0 -s 1"] # "-r 1","-r 0 -i 1","-r 0 -u 1","-r 0 -s 1"
 sampling = 0.1
 
 # "HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"
-NUMA = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"]
+# NUMA = ["HOT","Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","FPTree_DRAM","FPTree_PMEM","DPTree","LBTree_DRAM","LBTree_PMEM","PACTree"]
+NUMA = ["Masstree","ROART_DRAM","ROART_DCMM","ROART_PMDK","PACTree"]
 numa_threads = [40,30] # [40,30]
 numa_ops = ["-r 1","-r 0 -i 1","-r 0 -u 1","-r 0 -s 1"] # "-r 1","-r 0 -i 1","-r 0 -u 1","-r 0 -s 1"
 
@@ -227,23 +232,23 @@ for tree in Latency:
                 time.sleep(2)
 
 # NUMA
-for tree in NUMA:
-    exp_dir = create_result_folders(tree, "NUMA") # create result and tree folder if necessary
-    for op in numa_ops:
-        file_path = exp_dir + "/" + tree.lower() + "_" + op_to_filename[op] + "_results.txt" # path to result file that will be (re)created
-        if os.path.exists(file_path): # remove old result file if exists
-            os.remove(file_path)
-        for thread in numa_threads: # for each # thread
-            command = create_command(thread, numa_cores, tree, op, "NUMA") + " >> " + file_path
-            print(command)
-            for i in range(repeat): # repeat runs at each data point
-                with open(file_path, 'a') as f:
-                    f.write(command + '\n')
-                    f.close()
-                os.system(command)
-                for p in tree_to_pool[tree]:
-                    os.system("rm " + pool_path + p)
-                time.sleep(2)
+# for tree in NUMA:
+#     exp_dir = create_result_folders(tree, "NUMA") # create result and tree folder if necessary
+#     for op in numa_ops:
+#         file_path = exp_dir + "/" + tree.lower() + "_" + op_to_filename[op] + "_results.txt" # path to result file that will be (re)created
+#         if os.path.exists(file_path): # remove old result file if exists
+#             os.remove(file_path)
+#         for thread in numa_threads: # for each # thread
+#             command = create_command(thread, numa_cores, tree, op, "NUMA") + " >> " + file_path
+#             print(command)
+#             for i in range(repeat): # repeat runs at each data point
+#                 with open(file_path, 'a') as f:
+#                     f.write(command + '\n')
+#                     f.close()
+#                 os.system(command)
+#                 for p in tree_to_pool[tree]:
+#                     os.system("rm " + pool_path + p)
+#                 time.sleep(2)
 
 # VarKey
 for tree in VarKey:
