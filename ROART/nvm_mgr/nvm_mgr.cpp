@@ -7,6 +7,7 @@
 #include <mutex>
 #include <stdio.h>
 #include <vector>
+#include <unistd.h>
 
 namespace NVMMgr_ns {
 

@@ -33,10 +33,10 @@ find_library(TC_MALLOC_LIBRARY
 	NO_DEFAULT_PATH
 )
 
-#SET(TBB_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/third-party/tbb")
-#include(${TBB_ROOT}/cmake/TBBBuild.cmake)
-#tbb_build(TBB_ROOT ${TBB_ROOT} CONFIG_DIR TBB_DIR MAKE_ARGS)
-#find_package(TBB REQUIRED)
+SET(TBB_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/third-party/tbb")
+include(${TBB_ROOT}/cmake/TBBBuild.cmake)
+tbb_build(TBB_ROOT ${TBB_ROOT} CONFIG_DIR TBB_DIR MAKE_ARGS)
+find_package(TBB REQUIRED)
 
 #SET(Hana_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/third-party/boost-hana")
 
@@ -48,8 +48,8 @@ ADD_CUSTOM_TARGET(check COMMAND ${CMAKE_CTEST_COMMAND})
 ADD_SUBDIRECTORY(libs)
 include_directories("libs/hot/commons/include"
 		    "libs/idx/content-helpers/include"
-		    "libs/hot/rowex/include")
-
+		    "libs/hot/rowex/include"
+			"third-party/tbb/include")
 
 # Build hot shared library
 add_library(hot_wrapper SHARED ../hot_wrapper.cpp

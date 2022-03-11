@@ -27,7 +27,7 @@ if [[ "$indexes" == *"FPTree"* ]]; then
 		eval "git clone https://github.com/oneapi-src/oneTBB.git"
 	fi
 	eval "cp rtm_mutex.cpp oneTBB/src/tbb/rtm_mutex.cpp && cp rtm_rw_mutex.cpp oneTBB/src/tbb/rtm_rw_mutex.cpp"
-	eval "cd oneTBB && rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j 4"
+	eval "cd oneTBB && rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DTBB_TEST=OFF .. && make -j 4"
 	eval "cd ../../ && rm -rf build && mkdir build && cd build"
 
 	eval "cmake -DPMEM_BACKEND=PMEM -DTEST_MODE=0 -DBUILD_INSPECTOR=0 -DNDEBUG=1 .. && make"
